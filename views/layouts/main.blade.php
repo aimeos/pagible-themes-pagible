@@ -148,7 +148,7 @@
                 </ul>
                 <ul class="menu">
                     <li>
-                        <a href="#" class="search contrast" data-modal="modal-search" title="{{ __('Search') }}" aria-label="{{ __('Search') }}">
+                        <a href="#" class="search contrast" data-modal="modal-search" title="{{ __('Search') }}" aria-label="{{ __('Search') }}" role="menuitem">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                             </svg>
@@ -159,12 +159,12 @@
                             <li>
                                 @if($item->children->count())
                                     <details class="dropdown is-menu">
-                                        <summary role>{{ cms($item, 'name') }}</summary>
+                                        <summary role="menuitem">{{ cms($item, 'name') }}</summary>
                                         <ul class="align">
                                             @foreach($item->children as $subItem)
                                                 @if(cms($subItem, 'status') == 1)
                                                     <li>
-                                                        <a href="{{ cmsroute($subItem) }}" class="{{ $page->isSelfOrDescendantOf($subItem) ? 'active' : '' }} contrast">
+                                                        <a href="{{ cmsroute($subItem) }}" class="{{ $page->isSelfOrDescendantOf($subItem) ? 'active' : '' }} contrast" role="menuitem">
                                                             {{ cms($subItem, 'name') }}
                                                         </a>
                                                     </li>
@@ -173,7 +173,7 @@
                                         </ul>
                                     </details>
                                 @else
-                                    <a href="{{ cmsroute($item) }}" class="{{ $page->isSelfOrDescendantOf($item) ? 'active' : '' }} contrast">
+                                    <a href="{{ cmsroute($item) }}" class="{{ $page->isSelfOrDescendantOf($item) ? 'active' : '' }} contrast" role="menuitem">
                                         {{ cms($item, 'name') }}
                                     </a>
                                 @endif
