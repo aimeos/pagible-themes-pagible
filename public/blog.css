@@ -95,6 +95,17 @@
     line-height: 1.25;
 }
 
+.blog .blog-list .intro {
+    color: var(--pico-contrast);
+    font-size: calc(var(--pico-font-size) * 0.8);
+    line-height: 1.25;
+    margin: 0.5rem 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 @media (min-width: 768px) {
     .blog .blog-default {
         flex-direction: row;
