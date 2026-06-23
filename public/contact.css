@@ -32,6 +32,12 @@
     border-color: var(--pico-form-element-invalid-border-color);
 }
 
+.contact .submit {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
 .contact .h-captcha {
     text-align: center;
 }
