@@ -26,6 +26,7 @@
 
 .contact .errors {
     color: var(--pico-form-element-invalid-focus-color);
+    margin: 1rem 1.5rem;
 }
 
 .contact .error {
