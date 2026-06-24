@@ -23,18 +23,16 @@
 .table-responsive .th {
     background-color: var(--pico-muted-background-color);
     text-align: center;
+    align-self: end;
 }
 
 .table-responsive .th * {
     color: var(--pico-contrast-hover);
 }
 
-.table-responsive .th:first-child {
-    text-align: start;
-}
-
 .table-responsive .td {
     text-align: center;
+    align-self: center;
 }
 
 .table-responsive .th > *:first-child,
