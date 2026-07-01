@@ -15,10 +15,13 @@
 }
 
 .testimonial .testimonial-item {
-    margin: 0;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--pico-muted-background-color);
     border-bottom: 1px solid var(--pico-muted-border-color);
+    padding: 2rem;
+    margin: 0;
 }
 
 .testimonial .testimonial-item:last-child {
@@ -35,13 +38,11 @@
 }
 
 .testimonial blockquote::before {
-    content: '"';
-    display: block;
-    color: var(--pico-primary-hover);
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 0.8;
-    margin-bottom: 0.75rem;
+    content: '“';
+}
+
+.testimonial blockquote::after {
+    content: '”';
 }
 
 .testimonial blockquote p:last-child {
