@@ -76,7 +76,7 @@
 .cms-content .list .second .list-item,
 .cms-content .list .list-list .list-item {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .cms-content .list .second picture,
@@ -86,6 +86,7 @@
 
 .cms-content .list .second .content,
 .cms-content .list .list-list .content {
+    align-content: center;
     flex: 3;
 }
 
