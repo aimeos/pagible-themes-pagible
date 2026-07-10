@@ -96,11 +96,11 @@ class PagibleDemo extends AbstractDemo
                 'parent-page' => ['value' => $blogId, 'label' => 'Journal'],
             ]],
         ], $home, [], [
-            ['type' => 'meta-tags', 'data' => [
+            'meta-tags' => ['id' => Utils::uid(), 'type' => 'meta-tags', 'group' => 'basic', 'data' => [
                 'description' => 'The PagibleAI journal covers editorial workflows, structured content, Laravel delivery, and responsible AI assistance.',
                 'keywords' => 'PagibleAI CMS journal, Laravel CMS, structured content, editorial workflow',
             ]],
-            ['type' => 'social-media', 'data' => [
+            'social-media' => ['id' => Utils::uid(), 'type' => 'social-media', 'group' => 'basic', 'data' => [
                 'title' => 'PagibleAI Journal',
                 'description' => 'Working notes for editors and developers who share responsibility for a website.',
                 'file' => ['id' => $cover, 'type' => 'file'],
@@ -336,11 +336,11 @@ class PagibleDemo extends AbstractDemo
                 'file' => ['id' => $this->guideFile(), 'type' => 'file'],
             ]],
         ], $home, [$diagram], [
-            ['type' => 'meta-tags', 'data' => [
+            'meta-tags' => ['id' => Utils::uid(), 'type' => 'meta-tags', 'group' => 'basic', 'data' => [
                 'description' => 'Install PagibleAI CMS, choose packages, define content, configure permissions, and publish from a Laravel application.',
                 'keywords' => 'PagibleAI documentation, Laravel CMS installation, structured content, CMS API',
             ]],
-            ['type' => 'social-media', 'data' => [
+            'social-media' => ['id' => Utils::uid(), 'type' => 'social-media', 'group' => 'basic', 'data' => [
                 'title' => 'PagibleAI CMS Documentation',
                 'description' => 'Installation and working examples for editors and Laravel developers.',
                 'file' => ['id' => $diagram, 'type' => 'file'],
@@ -717,11 +717,11 @@ HTML,
         ];
 
         $meta = [
-            ['type' => 'meta-tags', 'data' => [
+            'meta-tags' => ['id' => Utils::uid(), 'type' => 'meta-tags', 'group' => 'basic', 'data' => [
                 'description' => 'PagibleAI is an API-first Laravel CMS for structured content, versioned publishing, AI-assisted editorial work, themes, search, and multi-site delivery.',
                 'keywords' => 'PagibleAI CMS, Laravel CMS, API-first CMS, structured content, AI content management',
             ]],
-            ['type' => 'social-media', 'data' => [
+            'social-media' => ['id' => Utils::uid(), 'type' => 'social-media', 'group' => 'basic', 'data' => [
                 'title' => 'PagibleAI CMS for Laravel',
                 'description' => 'A clear publishing system for editors and a compact Laravel foundation for developers.',
                 'file' => ['id' => $fileId, 'type' => 'file'],
@@ -864,7 +864,7 @@ HTML,
      * @param array<int, array<string, mixed>> $content Content elements
      * @param Page $parent Parent page to append to
      * @param array<int, string> $fileIds Additional file IDs to attach
-     * @param array<int, array<string, mixed>> $meta Meta data blocks
+     * @param array<string, array<string, mixed>> $meta Meta data blocks keyed by type
      * @return Page Created page
      */
     protected function page( array $data, array $content, Page $parent, array $fileIds = [], array $meta = [] ) : Page
@@ -874,11 +874,11 @@ HTML,
         $description = self::DESCRIPTIONS[$data['path'] ?? ''] ?? $data['title'] ?? '';
 
         $meta = $data['meta'] ?? $meta ?: [
-            ['type' => 'meta-tags', 'data' => [
+            'meta-tags' => ['id' => Utils::uid(), 'type' => 'meta-tags', 'group' => 'basic', 'data' => [
                 'description' => $description,
                 'keywords' => 'PagibleAI CMS, Laravel CMS, structured content, publishing',
             ]],
-            ['type' => 'social-media', 'data' => [
+            'social-media' => ['id' => Utils::uid(), 'type' => 'social-media', 'group' => 'basic', 'data' => [
                 'title' => $data['title'] ?? '',
                 'description' => $description,
                 'file' => ['id' => $fileId, 'type' => 'file'],
