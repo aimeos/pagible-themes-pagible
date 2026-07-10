@@ -20,6 +20,16 @@ use Illuminate\Support\Str;
  */
 class PagibleDemo extends AbstractDemo
 {
+    /** @var array<string, string> Meta descriptions keyed by page path */
+    private const DESCRIPTIONS = [
+        'a-draft-should-never-overwrite-a-live-page' => 'Keep live pages stable while editors prepare, review, schedule, and restore immutable content versions in PagibleAI CMS.',
+        'give-structured-content-a-shape-editors-can-use' => 'Design structured content models with clear fields, useful constraints, and stable contracts for editors, Blade views, and API clients.',
+        'where-ai-belongs-in-editorial-work' => 'Use AI for drafting, translation, transcription, and media work while keeping editorial review and publishing decisions human.',
+        'one-content-base-several-delivery-paths' => 'Deliver one published content base through Blade themes, JSON:API, GraphQL, and MCP without duplicating pages across clients.',
+        'docs/build-a-content-element' => 'Define a reusable PagibleAI content element in JSON schema, expose clear fields to editors, and render the published data with Blade.',
+        'docs/configure-editorial-ai' => 'Configure separate AI providers for writing, translation, transcription, descriptions, and image tasks while preserving human review.',
+    ];
+
     /**
      * Curated Unsplash photos used across the Pagible demo.
      *
@@ -861,15 +871,16 @@ HTML,
     {
         $elementId = $this->element();
         $fileId = $this->file();
+        $description = self::DESCRIPTIONS[$data['path'] ?? ''] ?? $data['title'] ?? '';
 
         $meta = $data['meta'] ?? $meta ?: [
             ['type' => 'meta-tags', 'data' => [
-                'description' => $data['title'] ?? '',
+                'description' => $description,
                 'keywords' => 'PagibleAI CMS, Laravel CMS, structured content, publishing',
             ]],
             ['type' => 'social-media', 'data' => [
                 'title' => $data['title'] ?? '',
-                'description' => $data['title'] ?? '',
+                'description' => $description,
                 'file' => ['id' => $fileId, 'type' => 'file'],
             ]],
         ];
