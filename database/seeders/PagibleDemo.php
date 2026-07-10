@@ -31,11 +31,12 @@ class PagibleDemo extends AbstractDemo
         'delivery' => ['photo-1754039984985-ef607d80113a', 'Content delivery code', 'Website delivery code displayed across several screens in a dark workspace'],
         'editor' => ['photo-1498050108023-c5249f4df085', 'PagibleAI editing workspace', 'Developer and editor workspace for building a Laravel website'],
         'global' => ['photo-1451187580459-43490279c0fa', 'Global publishing network', 'Connected network representing multilingual content delivery'],
-        'hero-content' => ['photo-1724754609250-fa57e82a93a7', 'Content editor at work', 'Editor working on website content at a laptop'],
         'hero-editor' => ['photo-1764974033674-fe324b36c1e4', 'Editorial software workspace', 'Editor working with content and media software on a laptop'],
         'hero-site' => ['photo-1560472355-109703aa3edc', 'Website editing screen', 'Website displayed on a desktop monitor in a working office'],
+        'interfaces' => ['photo-1755997268713-0ef1cc938cb6', 'Content across interfaces', 'Editor working across several screens and digital interfaces'],
         'media' => ['photo-1488590528505-98d2b5aba04b', 'Media library', 'Digital media workspace with connected hardware'],
         'model' => ['photo-1518770660439-4636190af475', 'Content model', 'Detailed system architecture representing a structured content model'],
+        'modeling' => ['photo-1531403009284-440f080d1e12', 'Structured content workshop', 'Team organizing content and interface ideas on a planning board'],
         'publish' => ['photo-1450101499163-c8848c66ca85', 'Publishing review', 'Documents and notes prepared for an editorial publishing review'],
         'search' => ['photo-1551288049-bebda4e38f71', 'Content search', 'Search and reporting interface displayed on a laptop'],
         'security' => ['photo-1563986768609-322da13575f3', 'CMS access controls', 'Security controls used to protect an editorial workspace'],
@@ -44,6 +45,8 @@ class PagibleDemo extends AbstractDemo
         'workflow' => ['photo-1552664730-d307ca884978', 'Editorial workflow', 'Team discussing an editorial workflow around a shared table'],
     ];
 
+    /** @var array<string, string> File IDs for fixed-ratio card images */
+    private array $cardImages = [];
     private string $element;
     private string $guideFile;
     private string $logoFile;
@@ -143,7 +146,7 @@ class PagibleDemo extends AbstractDemo
             $this->article(
                 'Give structured content a shape editors can use',
                 "A content model is only useful when an editor can understand it without reading the implementation. Field names should match the job at hand. Constraints should prevent real mistakes. Optional fields should remain optional.\n\nPagibleAI defines elements in JSON schema and renders them with Blade. Editors get a focused form; developers keep a small, reviewable contract between stored content and the frontend.",
-                $this->img( 'model' )
+                $this->img( 'modeling' )
             ),
             ['id' => Utils::uid(), 'type' => 'code', 'group' => 'main', 'data' => [
                 'language' => ['value' => 'json'],
@@ -152,9 +155,9 @@ class PagibleDemo extends AbstractDemo
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
                 'title' => 'A model has three readers',
                 'cards' => [
-                    ['title' => 'The editor', 'text' => 'Needs plain labels, sensible defaults, and enough structure to avoid cleanup later.', 'file' => ['id' => $this->img( 'content' ), 'type' => 'file']],
-                    ['title' => 'The frontend', 'text' => 'Needs a stable data shape that a Blade view or API client can render without guesswork.', 'file' => ['id' => $this->img( 'editor' ), 'type' => 'file']],
-                    ['title' => 'The next developer', 'text' => 'Needs a schema small enough to review and extend without tracing hidden conventions.', 'file' => ['id' => $this->img( 'team' ), 'type' => 'file']],
+                    ['title' => 'The editor', 'text' => 'Needs plain labels, sensible defaults, and enough structure to avoid cleanup later.', 'file' => ['id' => $this->cardImg( 'content' ), 'type' => 'file']],
+                    ['title' => 'The frontend', 'text' => 'Needs a stable data shape that a Blade view or API client can render without guesswork.', 'file' => ['id' => $this->cardImg( 'editor' ), 'type' => 'file']],
+                    ['title' => 'The next developer', 'text' => 'Needs a schema small enough to review and extend without tracing hidden conventions.', 'file' => ['id' => $this->cardImg( 'team' ), 'type' => 'file']],
                 ],
             ]],
             ['id' => Utils::uid(), 'type' => 'text', 'group' => 'main', 'data' => [
@@ -189,11 +192,15 @@ class PagibleDemo extends AbstractDemo
                     ['Transcription', 'Timed speech converted to text', 'Names, numbers, and technical terms'],
                 ],
             ]],
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Keep providers interchangeable',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'media' ), 'type' => 'file'],
                 'position' => 'start',
                 'ratio' => '1-2',
-                'text' => "## Keep providers interchangeable\n\nDifferent jobs call for different providers. PagibleAI lets you configure writing, translation, transcription, description, and image operations separately. You can change the provider or model for one task without rebuilding the editorial interface.\n\nThat boundary also keeps credentials and operational choices in Laravel configuration, where your development team can review them.",
+                'text' => "Different jobs call for different providers. PagibleAI lets you configure writing, translation, transcription, description, and image operations separately. You can change the provider or model for one task without rebuilding the editorial interface.\n\nThat boundary also keeps credentials and operational choices in Laravel configuration, where your development team can review them.",
             ]],
             ['id' => Utils::uid(), 'type' => 'text', 'group' => 'main', 'data' => [
                 'text' => "The measure of a good integration is not how often the model appears. It is whether the editor reaches a stronger draft with less copying between tools, while retaining a clear point at which a person accepts the work.",
@@ -213,7 +220,7 @@ class PagibleDemo extends AbstractDemo
             $this->article(
                 'One content base, several delivery paths',
                 "The website, a mobile client, an internal tool, and an automation agent should not need separate copies of the same page. They need interfaces suited to their jobs, backed by one published content record.\n\nPagibleAI renders Laravel sites with Blade, exposes published content through a read-only JSON:API, provides GraphQL for administration, and includes MCP tools for controlled content operations.",
-                $this->img( 'api' )
+                $this->img( 'interfaces' )
             ),
             ['id' => Utils::uid(), 'type' => 'table', 'group' => 'main', 'data' => [
                 'title' => 'Choose the interface by responsibility',
@@ -230,11 +237,15 @@ class PagibleDemo extends AbstractDemo
                 'language' => ['value' => 'graphql'],
                 'text' => "query PublishedPage {\n  page(path: \"company/about\") {\n    id\n    title\n    lang\n    content\n    files { id mime path description }\n  }\n}",
             ]],
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Preserve one publishing boundary',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'global' ), 'type' => 'file'],
                 'position' => 'end',
                 'ratio' => '1-2',
-                'text' => "## Preserve one publishing boundary\n\nEach delivery path should respect the same published version, tenant boundary, language, and permissions. That gives editors one place to correct content and gives developers an explicit contract for every consumer.\n\nWhen a page is published, search and delivery clients can work from the approved snapshot rather than an editor's unfinished revision.",
+                'text' => "Each delivery path should respect the same published version, tenant boundary, language, and permissions. That gives editors one place to correct content and gives developers an explicit contract for every consumer.\n\nWhen a page is published, search and delivery clients can work from the approved snapshot rather than an editor's unfinished revision.",
             ]],
             $this->articleHero( 'Pick the right delivery surface', 'See how the theme renderer, JSON:API, GraphQL, and MCP packages divide their responsibilities.' ),
         ], $blog );
@@ -394,11 +405,15 @@ HTML,
                     ['Fallback behavior', 'Editors need a clear error when a service is unavailable', 'Development team'],
                 ],
             ]],
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Keep the publishing decision human',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'security' ), 'type' => 'file'],
                 'position' => 'end',
                 'ratio' => '1-2',
-                'text' => "## Keep the publishing decision human\n\nGenerated text, translations, and media enter the same draft and version workflow as manual changes. The provider does not publish a page. Your CMS permissions still determine who can approve the result and make it public.\n\nTest the configured task with representative content before enabling it for a wider editorial group.",
+                'text' => "Generated text, translations, and media enter the same draft and version workflow as manual changes. The provider does not publish a page. Your CMS permissions still determine who can approve the result and make it public.\n\nTest the configured task with representative content before enabling it for a wider editorial group.",
             ]],
         ], $docs );
 
@@ -440,6 +455,46 @@ HTML,
             'url' => '/docs',
             'button' => 'Open the documentation',
         ]];
+    }
+
+
+    /**
+     * Creates a fixed 3:2 card image and returns its file ID.
+     *
+     * @param string $key Photo key from self::PHOTOS
+     * @return string File ID
+     */
+    protected function cardImg( string $key ) : string
+    {
+        if( !isset( $this->cardImages[$key] ) )
+        {
+            [$photo, $name, $desc] = self::PHOTOS[$key];
+            $base = 'https://images.unsplash.com/' . $photo;
+            $url = fn( int $w, int $h ) => $base . '?w=' . $w . '&h=' . $h . '&q=80&fm=jpg&fit=crop';
+
+            $data = [
+                'mime' => 'image/jpeg',
+                'lang' => 'en',
+                'name' => $name,
+                'path' => $url( 1500, 1000 ),
+                'previews' => ['500' => $url( 500, 333 ), '1000' => $url( 1000, 667 )],
+                'description' => ['en' => $desc],
+            ];
+
+            $file = File::forceCreate( $data + ['editor' => 'demo'] );
+            $version = $file->versions()->forceCreate( [
+                'lang' => 'en',
+                'data' => $data,
+                'published' => true,
+                'editor' => 'demo',
+            ] );
+
+            $file->forceFill( ['latest_id' => $version->id] )->saveQuietly();
+            $file->publish( $version );
+            $this->cardImages[$key] = (string) $file->refresh()->id;
+        }
+
+        return $this->cardImages[$key];
     }
 
 
@@ -573,8 +628,6 @@ HTML,
                 'background-animation' => 'zoom',
                 'files' => [
                     ['id' => $this->img( 'hero-editor' ), 'type' => 'file'],
-                    ['id' => $this->img( 'hero-content' ), 'type' => 'file'],
-                    ['id' => $this->img( 'delivery' ), 'type' => 'file'],
                 ],
             ]],
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [
