@@ -31,8 +31,8 @@ class PagibleDemo extends AbstractDemo
         'delivery' => ['photo-1754039984985-ef607d80113a', 'Content delivery code', 'Website delivery code displayed across several screens in a dark workspace'],
         'editor' => ['photo-1498050108023-c5249f4df085', 'PagibleAI editing workspace', 'Developer and editor workspace for building a Laravel website'],
         'global' => ['photo-1451187580459-43490279c0fa', 'Global publishing network', 'Connected network representing multilingual content delivery'],
-        'hero-editor' => ['photo-1764974033674-fe324b36c1e4', 'Editorial software workspace', 'Editor working with content and media software on a laptop'],
         'hero-site' => ['photo-1560472355-109703aa3edc', 'Website editing screen', 'Website displayed on a desktop monitor in a working office'],
+        'hero-team' => ['photo-1758873268745-dd2cf0d677b5', 'Team working in PagibleAI', 'Editorial and development team collaborating around one computer'],
         'interfaces' => ['photo-1755997268713-0ef1cc938cb6', 'Content across interfaces', 'Editor working across several screens and digital interfaces'],
         'media' => ['photo-1488590528505-98d2b5aba04b', 'Media library', 'Digital media workspace with connected hardware'],
         'model' => ['photo-1518770660439-4636190af475', 'Content model', 'Detailed system architecture representing a structured content model'],
@@ -111,11 +111,15 @@ class PagibleDemo extends AbstractDemo
                 "A routine edit should not put the public site at risk. Editors need room to revise a page, compare versions, and ask for review while readers continue to see the approved copy.\n\nPagibleAI stores each revision as an immutable snapshot. The editor works on the latest version; the website reads the published one. Those two states only meet when someone with the right permission publishes the draft.",
                 $this->img( 'version' )
             ),
+            ['id' => Utils::uid(), 'type' => 'heading', 'group' => 'main', 'data' => [
+                'level' => 2,
+                'title' => 'Treat publishing as a decision',
+            ]],
             ['id' => Utils::uid(), 'type' => 'image-text', 'group' => 'main', 'data' => [
                 'file' => ['id' => $this->img( 'publish' ), 'type' => 'file'],
                 'position' => 'end',
                 'ratio' => '1-2',
-                'text' => "## Treat publishing as a decision\n\nA useful review shows the proposed content, the person who changed it, and the version currently online. The reviewer should not have to reconstruct that history from messages or browser tabs.\n\nPagibleAI keeps drafts, scheduled versions, published snapshots, and restored revisions in the same record. You can move forward or restore an earlier version without changing the audit trail.",
+                'text' => "A useful review shows the proposed content, the person who changed it, and the version currently online. The reviewer should not have to reconstruct that history from messages or browser tabs.\n\nPagibleAI keeps drafts, scheduled versions, published snapshots, and restored revisions in the same record. You can move forward or restore an earlier version without changing the audit trail.",
             ]],
             ['id' => Utils::uid(), 'type' => 'table', 'group' => 'main', 'data' => [
                 'title' => 'What each state is for',
@@ -627,7 +631,7 @@ HTML,
                 'background' => ['id' => $this->img( 'hero-site' ), 'type' => 'file'],
                 'background-animation' => 'zoom',
                 'files' => [
-                    ['id' => $this->img( 'hero-editor' ), 'type' => 'file'],
+                    ['id' => $this->img( 'hero-team' ), 'type' => 'file'],
                 ],
             ]],
             ['id' => Utils::uid(), 'type' => 'cards', 'group' => 'main', 'data' => [

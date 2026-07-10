@@ -165,7 +165,7 @@ header nav > ul:not(.menu) > li {
     padding: 0;
 }
 
-header nav > ul > li:last-of-type a {
+header nav ul.menu > li:last-of-type > a {
     background-image: linear-gradient(90deg, var(--pico-primary), var(--pico-secondary));
     padding: 0.5rem 1rem;
     border-radius: 2rem;
