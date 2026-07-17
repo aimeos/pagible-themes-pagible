@@ -2,126 +2,125 @@
  * @license MIT, https://opensource.org/license/MIT
  */
 
-.cms-content .list .list-items {
+.blog .blog-items {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.cms-content .list .first,
-.cms-content .list .second {
+.blog .first,
+.blog .second {
     width: 100%;
 }
 
-.cms-content .list .second,
-.cms-content .list .list-list {
+.blog .second,
+.blog .blog-list {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.cms-content .list .list-cards {
+.blog .blog-cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
 }
 
-.cms-content .list .list-item {
+.blog .blog-item {
     text-decoration: none;
 }
 
-.cms-content .list img {
+.blog img {
     display: block;
     aspect-ratio: 5 / 3;
     object-fit: cover;
     width: 100%;
 }
 
-.cms-content .list .date {
+.blog .date {
     color: var(--pico-contrast);
     font-size: calc(var(--pico-font-size) * 0.8);
 }
 
-.cms-content .list h3 {
+.blog h3 {
     margin: 0;
 }
 
-.cms-content .list .first .content,
-.cms-content .list .list-cards .content {
+.blog .first .content,
+.blog .blog-cards .content {
     display: flex;
     margin: 1rem 0.5rem;
     gap: 2rem;
 }
 
-.cms-content .list .first .date-day,
-.cms-content .list .list-cards .date-day {
+.blog .first .date-day,
+.blog .blog-cards .date-day {
     font-weight: bold;
     font-size: calc(var(--pico-font-size) * 2);
     line-height: 1;
 }
 
-.cms-content .list .first .date-month,
-.cms-content .list .list-cards .date-month {
+.blog .first .date-month,
+.blog .blog-cards .date-month {
     text-transform: uppercase;
     font-size: calc(var(--pico-font-size) * 0.9);
     line-height: 0.75;
 }
 
-.cms-content .list .first h3,
-.cms-content .list .list-cards h3 {
+.blog .first h3,
+.blog .blog-cards h3 {
     font-size: calc(var(--pico-font-size) * 1.1);
     flex-grow: 1;
 }
 
-.cms-content .list .second .list-item,
-.cms-content .list .list-list .list-item {
+.blog .second .blog-item,
+.blog .blog-list .blog-item {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.cms-content .list .second picture,
-.cms-content .list .list-list picture {
+.blog .second picture,
+.blog .blog-list picture {
     flex: 2;
 }
 
-.cms-content .list .second .content,
-.cms-content .list .list-list .content {
-    align-content: center;
+.blog .second .content,
+.blog .blog-list .content {
     flex: 3;
 }
 
-.cms-content .list .second h3,
-.cms-content .list .list-list h3 {
+.blog .second h3,
+.blog .blog-list h3 {
     font-size: calc(var(--pico-font-size) * 0.9);
     line-height: 1.25;
 }
 
-.cms-content .list .list-list .intro {
+.blog .blog-list .intro {
     color: var(--pico-contrast);
     font-size: calc(var(--pico-font-size) * 0.8);
     line-height: 1.25;
     margin: 0.5rem 0 0;
 }
 
-.cms-content .list .list-list .list-item:nth-child(even) {
+.blog .blog-list .blog-item:nth-child(even) {
     flex-direction: row-reverse;
 }
 
 @media (min-width: 768px) {
-    .cms-content .list .list-default {
+    .blog .blog-default {
         flex-direction: row;
     }
 
-    .cms-content .list .list-default .first,
-    .cms-content .list .list-default .second {
+    .blog .blog-default .first,
+    .blog .blog-default .second {
         width: 50%;
     }
 
-    .cms-content .list .list-cards {
+    .blog .blog-cards {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-.cms-content .list nav .pagination {
+.blog nav .pagination {
     margin: auto;
 }
