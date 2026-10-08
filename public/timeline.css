@@ -43,7 +43,7 @@
     height: var(--marker);
     border: 2px solid var(--pico-primary);
     border-radius: 50%;
-    color: var(--pico-primary-hover);
+    color: #60B0FF;
     font-weight: 700;
     line-height: 1;
 }
@@ -54,7 +54,7 @@
 
 .timeline .label {
     margin: 0 0 0.25rem;
-    color: var(--pico-primary-hover);
+    color: #60B0FF;
     font-size: calc(var(--pico-font-size) * 0.75);
     font-weight: 600;
 }
